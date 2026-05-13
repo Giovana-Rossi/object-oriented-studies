@@ -21,13 +21,17 @@ public class EmployeeRegistrationService {
 
         Consultant consultantResponsible;
         if (responsible instanceof Reseller) {
+            Consultant responsibleChef = responsible.getConsultantInCharge();
                     consultantResponsible = new Consultant(responsible.getId(),
                     responsible.getName(),
                     responsible.getBirthDate(),
                     responsible.getSoldValue(),
                     null);
             repo.update(consultantResponsible);
-
+            if (responsibleChef != null) {
+                responsibleChef.addEmployee(consultantResponsible);
+                repo.update(responsibleChef);
+            }
         }
         else consultantResponsible = (Consultant) responsible;
 

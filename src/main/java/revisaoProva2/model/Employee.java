@@ -48,6 +48,10 @@ public abstract sealed class Employee permits Consultant, Reseller {
         this.soldValue = soldValue;
     }
 
+    public Consultant getConsultantInCharge() {
+        return consultantInCharge;
+    }
+
     @Override
     public String toString() {
         return String.format("[%s] %s | Birthday: %s | Amount in Sales: %.2f | Comission: %.2f",
