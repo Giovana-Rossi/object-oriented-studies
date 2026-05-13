@@ -22,7 +22,7 @@ public final class Consultant extends Employee {
     }
 
     public void addEmployee(Employee e ){
-        subordinates.removeIf(sub -> sub.getId().equals(e.getId()));
+        subordinates.remove(e);
         subordinates.add(e);
     }
 
