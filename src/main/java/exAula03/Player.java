@@ -1,3 +1,5 @@
+package exAula03;
+
 public class Player {
     private String name;
     private int number;

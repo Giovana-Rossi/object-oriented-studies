@@ -1,3 +1,5 @@
+package exAula03;
+
 public class Team {
     private String name;
     private String baseLocation;
