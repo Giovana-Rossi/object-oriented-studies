@@ -1,4 +1,4 @@
-package revisaoProva2.domain;
+package revisaoProva2.model;
 
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
@@ -23,6 +23,7 @@ public final class Consultant extends Employee {
     }
 
     public void addEmployee(Employee e ){
+        subordinates.remove(e);
         subordinates.add(e);
     }
 

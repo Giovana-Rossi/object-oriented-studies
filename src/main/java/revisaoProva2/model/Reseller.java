@@ -1,4 +1,4 @@
-package revisaoProva2.domain;
+package revisaoProva2.model;
 
 import java.time.LocalDate;
 
