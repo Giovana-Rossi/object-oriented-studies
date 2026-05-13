@@ -12,8 +12,4 @@ public final class Reseller extends Employee {
         return 0.15 * getSoldValue();
     }
 
-    @Override
-    public String toString() {
-        return "Reseller{} " + super.toString();
-    }
 }

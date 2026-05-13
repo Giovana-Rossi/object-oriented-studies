@@ -15,8 +15,17 @@ public class EmployeeReportService {
 
     public String reportOf(String id){
         Employee e = repo.findById(id).orElseThrow(()->  new IllegalArgumentException("Erro: não foi possivel localizar empregado"));
-       if(e instanceof Consultant)
-           return ((Consultant) e).getEmployees().stream().map((Employee::toString)).collect(Collectors.joining("\n"));
-       return e.toString();
+       return buildPrint(e, "");
+    }
+
+    private String buildPrint(Employee e, String spaces){
+        StringBuilder sb = new StringBuilder();
+        sb.append(spaces).append(e.toString()).append("\n");
+
+        if(e instanceof Consultant consultant)
+            for (Employee subordinate : consultant.getEmployees() ) {
+                sb.append(buildPrint(subordinate,spaces + "      "));
+            }
+        return sb.toString();
     }
 }

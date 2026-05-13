@@ -14,8 +14,7 @@ public final class Consultant extends Employee {
 
     @Override
     public double getComission() {
-        subordinates.stream().mapToDouble(e -> e.getSoldValue() * 0.30).sum();
-        return 0.15 * getSoldValue() + subordinates.stream().mapToDouble(e -> e.getSoldValue() * 0.30).sum();
+        return 0.15 * getSoldValue() + subordinates.stream().mapToDouble(e -> e.getComission() * 0.30).sum();
     }
 
     public Set<Employee> getEmployees() {
@@ -23,14 +22,8 @@ public final class Consultant extends Employee {
     }
 
     public void addEmployee(Employee e ){
-        subordinates.remove(e);
+        subordinates.removeIf(sub -> sub.getId().equals(e.getId()));
         subordinates.add(e);
     }
 
-    @Override
-    public String toString() {
-        return "Consultant{" +
-                "subordinates=" + subordinates +
-                "} " + super.toString();
-    }
 }
