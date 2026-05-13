@@ -50,12 +50,8 @@ public abstract sealed class Employee permits Consultant, Reseller {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", birthDate=" + birthDate +
-                ", soldValue=" + soldValue +
-                '}';
+        return String.format("[%s] %s | Birthday: %s | Amount in Sales: %.2f | Comission: %.2f",
+                id,name, birthDate, soldValue, getComission());
     }
 
     @Override
